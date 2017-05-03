@@ -1,0 +1,12 @@
+var secondsPerMinute = 60;
+var minsPerHour = 60;
+var hoursperDay = 24;
+var daysPerWeek = 7;
+var weeksPerYear = 52;
+var secondsPerDay = secondsPerMinute * minsPerHour * hoursperDay;
+document.write("There are " + secondsPerDay + " seconds in a day.");
+var yearsAlive = 30 * weeksPerYear * weeksPerYear * secondsPerDay;
+document.write(" I have been alive " + yearsAlive + " seconds.");
+var weeksUntilRetirement = 30 * weeksPerYear;
+var daysUntilRetirement = weeksUntilRetirement * daysPerWeek;
+document.write(" I have " + weeksUntilRetirement + " weeks and " + daysUntilRetirement + " days until retirement.");
