@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Speed Scrubber</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="wrapper">
+    <video class="flex" width="765" height="430" src="https://www.youtube.com/watch?v=kpW9JcWxKq0" loop controls></video>
+    <!--<iframe src="https://player.vimeo.com/video/152639172?color=4579a3&badge=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+    <div class="speed">
+      <div class="speed-bar">1×</div>
+    </div>
+  </div>
+
+<script>
+  const speed = document.querySelector('.speed');
+  const bar = speed.querySelector('.speed-bar');
+  const video = document.querySelector('.flex');
+
+  function handleMove(e) {
+    const y = e.pageY - this.offsetTop;
+    const percent = y / this.offsetHeight;
+    const min = 0.4;
+    const max = 4;
+    const height = Math.round(percent * 100) + '%';
+    const playbackRate =  percent * (max - min) + min;
+    bar.style.height = height;
+    bar.textContent = playbackRate.toFixed(2) + 'x';
+    video.playbackRate = playbackRate;
+  }
+
+  speed.addEventListener('mousemove', handleMove);
+</script>
+</body>
+</html>
